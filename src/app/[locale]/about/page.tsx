@@ -62,7 +62,7 @@ const PERSON_JSON_LD = {
 		name: "Universiti Teknologi Malaysia",
 	},
 	knowsAbout: ["React", "Next.js", "TypeScript", "Golang", "AWS"],
-	sameAs: SOCIALS,
+	sameAs: [SITE_CONFIG.portfolio, ...SOCIALS],
 };
 
 const AboutPage = () => {

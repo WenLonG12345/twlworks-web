@@ -1,8 +1,8 @@
 @AGENTS.md
 
-# teo-nextjs-portfolio-v2
+# twlworks-web
 
-Personal portfolio site. Next.js 16 App Router + React 19 + TypeScript, bilingual (en/zh) via next-intl, Tailwind v4 + shadcn-style UI, deployed on Vercel at `https://www.twlworks.com`.
+Business site for twlworks (one-person software studio for Malaysian SMEs). The personal engineering portfolio is a separate repo, `teowenlong-portfolio` (`https://teowenlong.vercel.app`) — résumé-style content belongs there, not here. Next.js 16 App Router + React 19 + TypeScript, bilingual (en/zh) via next-intl, Tailwind v4 + shadcn-style UI, deployed on Vercel at `https://www.twlworks.com`.
 
 ## Commands
 

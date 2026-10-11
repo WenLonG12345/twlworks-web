@@ -3,23 +3,16 @@
 /* Hallmark · macrostructure: Bento Grid · tone: utilitarian · anchor hue: project primary (amber)
  * pre-emit critique: P4 H5 E4 S5 R5 V4
  * genre: editorial · nav/footer: shared layout (unchanged) · enrichment: none (real photo, tile-cropped)
- * reveal: none on tiles; Career / Education keep their existing entrance
+ * reveal: none — founder page; résumé detail lives on the engineering portfolio
  * theme: project palette preserved (shadcn HSL tokens, Hanken Grotesk)
  */
 
-import { ArrowUpRight, Download, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import {
-	CAREER_LIST,
-	PROJECT_LIST,
-	SITE_CONFIG,
-	SKILL_LIST,
-} from "@/constants";
+import { CAREER_LIST, PROJECT_LIST, SITE_CONFIG } from "@/constants";
 import { Link } from "@/i18n/routing";
-import CareerTabs from "./tabs/CareerTabs";
-import EducationTabs from "./tabs/EducationTabs";
 
 const [NOW] = CAREER_LIST;
 const PROJECT_COUNT = Object.values(PROJECT_LIST).flat().length;
@@ -58,7 +51,7 @@ const AboutClient = () => {
 								Teo Wen Long
 							</h1>
 							<p className="mt-1 text-base font-medium text-primary">
-								{NOW.role}
+								{t("about.role")}
 							</p>
 							<p className="flex items-center gap-1.5 mt-1 text-sm text-muted-foreground">
 								<MapPin size={14} aria-hidden="true" />
@@ -73,23 +66,23 @@ const AboutClient = () => {
 
 					<div className="flex flex-wrap gap-3 mt-auto">
 						<Button asChild className="gap-2">
-							<Link href={SITE_CONFIG.resume.url} target="_blank">
-								<Download size={16} aria-hidden="true" />
-								{t("about.resume")}
-							</Link>
-						</Button>
-						<Button asChild variant="outline" className="gap-2">
 							<Link href={SITE_CONFIG.contact.booking} target="_blank">
 								<Phone size={16} aria-hidden="true" />
 								{t("about.book_cta")}
 							</Link>
 						</Button>
+						<Button asChild variant="outline" className="gap-2">
+							<Link href="/services">
+								{t("about.services_cta")}
+								<ArrowUpRight size={16} aria-hidden="true" />
+							</Link>
+						</Button>
 					</div>
 				</div>
 
-				{/* Now · 1×1 */}
+				{/* Day job · 1×1 — stated plainly, never hidden */}
 				<div className={`${tile} gap-4`}>
-					<span className={label}>{t("about.now")}</span>
+					<span className={label}>{t("about.day_job")}</span>
 					<div className="flex items-center gap-3 mt-auto">
 						<div className="relative w-10 h-10 overflow-hidden border rounded-lg shrink-0 border-border bg-muted">
 							<Image
@@ -113,7 +106,7 @@ const AboutClient = () => {
 									className="opacity-0 transition-opacity group-hover:opacity-100"
 								/>
 							</Link>
-							<p className="text-xs text-muted-foreground">{NOW.period}</p>
+							<p className="text-xs text-muted-foreground">{NOW.role}</p>
 						</div>
 					</div>
 				</div>
@@ -141,26 +134,14 @@ const AboutClient = () => {
 					</dl>
 				</div>
 
-				{/* twlworks · 1×1 */}
-				<div className={`${tile} gap-3`}>
-					<span className={label}>{t("about.also")}</span>
-					<p className="text-sm leading-relaxed text-muted-foreground">
-						{t("about.also_body")}
-					</p>
-					<Link
-						href="/services"
-						className="inline-flex items-center gap-1 mt-auto text-sm font-medium text-primary hover:underline underline-offset-4"
-					>
-						{t("about.also_cta")}
-						<ArrowUpRight size={14} aria-hidden="true" />
-					</Link>
-				</div>
-
-				{/* Elsewhere · 1×1 */}
-				<div className={`${tile} gap-3`}>
+				{/* Elsewhere · 2×1 */}
+				<div className={`${tile} sm:col-span-2 gap-3`}>
 					<span className={label}>{t("about.elsewhere")}</span>
-					<ul className="flex flex-col gap-1.5 mt-auto">
-						{PROFILES.map((p) => (
+					<ul className="flex flex-wrap gap-x-5 gap-y-1.5 mt-auto">
+						{[
+							{ url: SITE_CONFIG.portfolio, name: t("about.portfolio") },
+							...PROFILES,
+						].map((p) => (
 							<li key={p.url}>
 								<Link
 									href={p.url}
@@ -179,37 +160,42 @@ const AboutClient = () => {
 						))}
 					</ul>
 				</div>
+			</div>
 
-				{/* Skills · full row */}
-				<div className={`${tile} sm:col-span-2 lg:col-span-4 gap-4`}>
-					<span className={label}>{t("about.stack")}</span>
-					<ul className="flex flex-wrap gap-2">
-						{SKILL_LIST.map((skill) => (
-							<li
-								key={skill.name}
-								className="inline-flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2 py-1 text-xs font-medium"
-							>
+			{/* ── Track record · one line per role; detail lives on the portfolio ── */}
+			<section className="max-w-3xl mx-auto mt-24">
+				<h2 className="mb-3 text-3xl font-bold md:text-4xl">
+					{t("about.title_career")}
+				</h2>
+				<p className="mb-8 text-base text-muted-foreground">
+					{t("about.summary_career")}
+				</p>
+				<ol className="border-t border-border">
+					{CAREER_LIST.map((career) => (
+						<li
+							key={career.title}
+							className="flex items-center gap-4 py-4 border-b border-border"
+						>
+							<div className="relative w-10 h-10 overflow-hidden border rounded-lg shrink-0 border-border bg-muted">
 								<Image
-									src={skill.icon}
-									width={14}
-									height={14}
-									alt=""
-									aria-hidden="true"
+									src={career.logo}
+									alt={career.alt}
+									fill
+									sizes="40px"
+									className="object-cover"
 								/>
-								{skill.name}
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
-
-			{/* ── The record ───────────────────────────────────────── */}
-			<div className="mt-24">
-				<CareerTabs />
-			</div>
-			<div className="mt-24">
-				<EducationTabs />
-			</div>
+							</div>
+							<div className="flex-1 min-w-0">
+								<p className="font-semibold leading-tight">{career.title}</p>
+								<p className="text-sm text-muted-foreground">{career.role}</p>
+							</div>
+							<p className="text-sm text-muted-foreground shrink-0 tabular-nums">
+								{career.period}
+							</p>
+						</li>
+					))}
+				</ol>
+			</section>
 		</div>
 	);
 };
