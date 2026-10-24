@@ -25,7 +25,9 @@
 		"wordmark_tagline": "Custom software · Kuala Lumpur",
 		"direct": "You work directly with me — no account manager, no handover to a stranger.",
 		"trusted_by": "Recent client work",
-		"sectors": "Property · Collectibles · F&B · Events · Design"
+		"sectors": "Property · Collectibles · F&B · Events · Design",
+		"seo_title": "twlworks | Custom Software for Malaysian Businesses",
+		"seo_description": "I build the systems businesses run on — custom platforms, CRM and integrations that bring your team, your customers and your partners into one place."
 	},
 	"stats": {
 		"badge": "My Impact",
@@ -129,7 +131,8 @@
 		"timeline_exploring": "Just exploring",
 		"current_tools": "What do you use today?",
 		"current_tools_placeholder": "Spreadsheets, WhatsApp, an existing system...",
-		"message_placeholder": "What is not working today?"
+		"message_placeholder": "What is not working today?",
+		"seo_description": "Talk to twlworks about custom software, CRM or integrations for your Malaysian business. WhatsApp, book a free 30-minute call, or email directly."
 	},
 	"skills": {
 		"badge": "Skills",
@@ -146,7 +149,9 @@
 		"description_1": "Technical posts I write here and on Medium — tutorials, insights, and lessons from real projects.",
 		"description_2": "Written from experience. Feel free to share!",
 		"empty": "No posts yet. Check back soon!",
-		"tab_label": "Blog Posts"
+		"tab_label": "Blog Posts",
+		"seo_description": "Practical writing on custom software, CRM and system integrations for Malaysian businesses, plus technical posts from real client projects.",
+		"back": "Back to Insights"
 	},
 	"notFound": {
 		"description": "Oops! The page you're looking for doesn't exist or has been moved.",

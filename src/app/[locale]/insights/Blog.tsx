@@ -45,9 +45,9 @@ const BlogClient = ({ posts }: BlogClientProps) => {
 				<h2 className="block mb-2 text-lg tracking-wider text-center text-primary md:hidden">
 					{t("blog.badge")}
 				</h2>
-				<h2 className="mb-4 text-3xl font-bold text-center md:text-4xl">
+				<h1 className="mb-4 text-3xl font-bold text-center md:text-4xl">
 					{t("blog.title")}
-				</h2>
+				</h1>
 				<p className="mx-auto mb-10 text-xl text-center md:w-1/2 text-muted-foreground">
 					{t("blog.description_1")}
 				</p>

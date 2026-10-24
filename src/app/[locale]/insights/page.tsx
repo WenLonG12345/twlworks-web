@@ -5,7 +5,7 @@ import type { MetadataProps } from "@/constants/types";
 import { getMediumArticles } from "@/utils/api";
 import { getAllPosts } from "@/utils/blog";
 import getQueryClient from "@/utils/getQueryClient";
-import { localeAlternates } from "@/utils/seo";
+import { localeAlternates, localizedPath } from "@/utils/seo";
 import BlogClient from "./Blog";
 
 export async function generateMetadata({
@@ -16,21 +16,19 @@ export async function generateMetadata({
 
 	return {
 		title: t("blog.badge"),
-		description: t("blog.title"),
+		description: t("blog.seo_description"),
 		alternates: localeAlternates(locale, "/insights"),
-		icons: { icon: "/favicon.ico" },
 		openGraph: {
 			type: "website",
 			title: t("blog.title"),
-			url: "/insights",
-			description: t("blog.description_1"),
+			url: localizedPath(locale, "/insights"),
+			description: t("blog.seo_description"),
 			images: ["/og_image.png"],
 		},
 		twitter: {
 			card: "summary_large_image",
 			title: t("blog.title"),
-			site: "/insights",
-			description: t("blog.description_1"),
+			description: t("blog.seo_description"),
 			images: ["/og_image.png"],
 		},
 	};

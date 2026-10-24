@@ -5,17 +5,35 @@ import HeroSection from "@/components/layout/sections/hero";
 import ProjectSection from "@/components/layout/sections/project";
 import ServicesSection from "@/components/layout/sections/services";
 import { Button } from "@/components/ui/button";
-import { METADATA, SITE_CONFIG } from "@/constants";
+import { SITE_CONFIG } from "@/constants";
 import type { MetadataProps } from "@/constants/types";
-import { localeAlternates } from "@/utils/seo";
+import { localeAlternates, localizedPath } from "@/utils/seo";
 
 export async function generateMetadata({
 	params,
 }: MetadataProps): Promise<Metadata> {
 	const { locale } = await params;
+	const t = await getTranslations({ locale });
+	const title = t("home.seo_title");
+	const description = t("home.seo_description");
+
 	return {
-		title: { absolute: METADATA.title },
+		title: { absolute: title },
+		description,
 		alternates: localeAlternates(locale, ""),
+		openGraph: {
+			type: "website",
+			title,
+			description,
+			url: localizedPath(locale, ""),
+			images: ["/og_image.png"],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title,
+			description,
+			images: ["/og_image.png"],
+		},
 	};
 }
 

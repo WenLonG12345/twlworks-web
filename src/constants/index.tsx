@@ -1,8 +1,8 @@
 import type { NavItemProps } from "./types";
 
 export const METADATA = {
-	title: "Teo | Custom Software for Malaysian Businesses",
-	titleTemplate: "%s | Teo",
+	title: "twlworks | Custom Software for Malaysian Businesses",
+	titleTemplate: "%s | twlworks",
 	description:
 		"I build the systems businesses run on — custom platforms, CRM and integrations that bring your team, your customers and your partners into one place.",
 	url: "https://www.twlworks.com/",
@@ -99,7 +99,7 @@ export const PROJECT_LIST: {
 	"project.freelance": [
 		{
 			name: "Hercules Factory Management System",
-			imageUrl: "/images/hercules.png",
+			imageUrl: "/images/hercules.webp",
 			alt: "hercules-factory",
 			summary:
 				"Class booking and membership system for a Muay Thai gym — members book their slot online, coaches see who is coming, and the front desk tracks packages and attendance in one place",
@@ -121,7 +121,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "Regal Global",
-			imageUrl: "/images/regal.png",
+			imageUrl: "/images/regal.webp",
 			alt: "regal-global",
 			summary:
 				"Property listing and tenancy management platform giving tenants, landlords, agents and admins a single system for listings, applications, documents and approvals",
@@ -143,7 +143,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "TCGKL",
-			imageUrl: "/images/tcgkl.png",
+			imageUrl: "/images/tcgkl.webp",
 			alt: "tcgkl",
 			summary:
 				"Malaysia's premier trading card game (TCG) convention and community platform, organizing major events for collectors and players of Pokémon, One Piece, Magic: The Gathering, and more",
@@ -215,7 +215,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "HaiKahLang Inventory Management System",
-			imageUrl: "/images/hkl.png",
+			imageUrl: "/images/hkl.webp",
 			alt: "hkl",
 			summary:
 				"Inventory management system for HaiKahLang, a local F&B business in Malaysia, built with React and Golang",
@@ -235,7 +235,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "N1X Space",
-			imageUrl: "/images/n1x-space.png",
+			imageUrl: "/images/n1x-space.webp",
 			alt: "n1x_space",
 			summary:
 				"Personal portfolio for Nyx Zhu, a talented interior designer, showcasing her impressive projects and design philosophy",
@@ -252,7 +252,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "Ideasss",
-			imageUrl: "/images/ideasss.png",
+			imageUrl: "/images/ideasss.webp",
 			alt: "ideasss",
 			summary:
 				"NFT Platform for Creativity and Ideas,  First marketplace to connect demanders and designers through transparent competition",
@@ -263,7 +263,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "3CommasClub NFT",
-			imageUrl: "/images/3commas.png",
+			imageUrl: "/images/3commas.webp",
 			alt: "3commasclub",
 			summary:
 				"NFC business card builder linked with unique NFT. Build business profile embed with NFC that allows others to scan and connect.",
@@ -274,7 +274,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "KlusterX Player Portal",
-			imageUrl: "/images/klusterx_player.png",
+			imageUrl: "/images/klusterx_player.webp",
 			alt: "klusterx",
 			summary:
 				"Online Gaming Player Portal, built with NextJS, TailwindCSS and MantineUI",
@@ -305,7 +305,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "Revocall",
-			imageUrl: "/images/revocall.png",
+			imageUrl: "/images/revocall.webp",
 			alt: "revocall",
 			summary:
 				"AI voice agent management platform for enterprises to build, deploy and manage AI voice agents",
@@ -316,7 +316,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "Reflect ReVa",
-			imageUrl: "/images/reva.png",
+			imageUrl: "/images/reva.webp",
 			alt: "reva",
 			summary:
 				"AI voice agent for Arab Bank digital mobile app (Reflect), providing customers with a seamless banking experience through natural language interactions",
@@ -392,7 +392,7 @@ export const PROJECT_LIST: {
 		},
 		{
 			name: "CM Script",
-			imageUrl: "/images/cm-script.png",
+			imageUrl: "/images/cm-script.webp",
 			alt: "klusterx",
 			summary: "CLI script for linting your commit message 🎉",
 			summary_zh: "用于检查提交消息的 CLI 脚本 🎉。",

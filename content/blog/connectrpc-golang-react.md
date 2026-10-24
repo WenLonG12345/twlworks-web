@@ -3,7 +3,7 @@ title: "Building Type-Safe APIs with ConnectRPC: Go Backend + React Frontend"
 date: "2025-03-27"
 description: "A practical guide to using ConnectRPC to build fully type-safe APIs with a Golang backend and React frontend — covering protobuf definitions, code generation, and React Query hooks."
 tags: ["Golang", "React", "ConnectRPC", "TypeScript", "Protobuf"]
-coverImage: "/images/connectrpc-golang-react.png"
+coverImage: "/images/connectrpc-golang-react.webp"
 ---
 
 ## Table of Contents

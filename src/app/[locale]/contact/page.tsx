@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { MetadataProps } from "@/constants/types";
-import { localeAlternates } from "@/utils/seo";
+import { localeAlternates, localizedPath } from "@/utils/seo";
 import ContactClient from "./Contact";
 
 export async function generateMetadata({
@@ -12,23 +12,19 @@ export async function generateMetadata({
 
 	return {
 		title: t("contact.badge"),
-		description: t("contact.title"),
+		description: t("contact.seo_description"),
 		alternates: localeAlternates(locale, "/contact"),
-		icons: {
-			icon: "/favicon.ico",
-		},
 		openGraph: {
 			type: "website",
 			title: t("contact.title"),
-			url: "/contact",
-			description: t("contact.description_1"),
+			url: localizedPath(locale, "/contact"),
+			description: t("contact.seo_description"),
 			images: ["/og_image.png"],
 		},
 		twitter: {
 			card: "summary_large_image",
 			title: t("contact.title"),
-			site: "/contact",
-			description: t("contact.description_1"),
+			description: t("contact.seo_description"),
 			images: ["/og_image.png"],
 		},
 	};

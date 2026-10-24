@@ -38,7 +38,7 @@ const AboutClient = () => {
 					<div className="flex items-start gap-5">
 						<div className="relative w-20 h-20 overflow-hidden border shrink-0 rounded-xl border-border bg-muted sm:w-24 sm:h-24">
 							<Image
-								src="/images/profile_picture.png"
+								src="/images/profile_picture.webp"
 								alt="Teo Wen Long"
 								fill
 								sizes="96px"

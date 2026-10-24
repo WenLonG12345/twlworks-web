@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import ServicesSection from "@/components/layout/sections/services";
 import type { MetadataProps } from "@/constants/types";
-import { localeAlternates } from "@/utils/seo";
+import { localeAlternates, localizedPath } from "@/utils/seo";
 
 export async function generateMetadata({
 	params,
@@ -14,20 +14,16 @@ export async function generateMetadata({
 		title: t("services.badge"),
 		description: t("services.description"),
 		alternates: localeAlternates(locale, "/services"),
-		icons: {
-			icon: "/favicon.ico",
-		},
 		openGraph: {
 			type: "website",
 			title: t("services.title"),
-			url: "/services",
+			url: localizedPath(locale, "/services"),
 			description: t("services.description"),
 			images: ["/og_image.png"],
 		},
 		twitter: {
 			card: "summary_large_image",
 			title: t("services.title"),
-			site: "/services",
 			description: t("services.description"),
 			images: ["/og_image.png"],
 		},

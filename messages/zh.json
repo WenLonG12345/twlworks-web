@@ -25,7 +25,9 @@
 		"wordmark_tagline": "定制软件 · 吉隆坡",
 		"direct": "你直接对接我 — 没有客户经理，也不会转交给陌生人。",
 		"trusted_by": "近期客户项目",
-		"sectors": "房产 · 收藏品 · 餐饮 · 活动 · 设计"
+		"sectors": "房产 · 收藏品 · 餐饮 · 活动 · 设计",
+		"seo_title": "twlworks | 为马来西亚企业打造定制软件",
+		"seo_description": "我打造企业运作的核心系统 — 定制平台、CRM 与系统对接，让你的员工、客户与合作伙伴都在同一个平台上协作。"
 	},
 	"stats": {
 		"badge": "我的成就",
@@ -129,7 +131,8 @@
 		"timeline_exploring": "只是先了解",
 		"current_tools": "你目前用什么工具？",
 		"current_tools_placeholder": "Excel、WhatsApp、现有系统……",
-		"message_placeholder": "目前哪里不顺？"
+		"message_placeholder": "目前哪里不顺？",
+		"seo_description": "想为你的马来西亚企业打造定制软件、CRM 或系统对接？通过 WhatsApp、预约 30 分钟免费通话或电邮，直接联系 twlworks。"
 	},
 	"skills": {
 		"badge": "技能",
@@ -147,7 +150,9 @@
 		"description_2": "源于实践，欢迎分享！",
 		"empty": "暂无文章，敬请期待！",
 		"tab_label": "博客文章",
-		"tab_desc": "发布于此网站"
+		"tab_desc": "发布于此网站",
+		"seo_description": "关于定制软件、CRM 与系统对接的实用文章，面向马来西亚企业，以及来自真实客户项目的技术分享。",
+		"back": "返回文章列表"
 	},
 	"notFound": {
 		"description": "抱歉！您正在寻找的页面不存在或已被移动。",

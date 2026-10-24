@@ -6,9 +6,10 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/routing";
+import { METADATA } from "@/constants";
+import { Link, routing } from "@/i18n/routing";
 import { getAllPosts, getPostBySlug } from "@/utils/blog";
-import { localeAlternates } from "@/utils/seo";
+import { localizedPath } from "@/utils/seo";
 import ShareButtons from "./ShareButtons";
 
 interface BlogPostPageProps {
@@ -34,12 +35,14 @@ export async function generateMetadata({
 	return {
 		title: post.title,
 		description: post.description,
-		alternates: localeAlternates(locale, `/insights/${slug}`),
-		icons: { icon: "/favicon.ico" },
+		// posts are English-only: /zh copies canonicalise to the en URL, no hreflang
+		alternates: {
+			canonical: localizedPath(routing.defaultLocale, `/insights/${slug}`),
+		},
 		openGraph: {
 			type: "article",
 			title: post.title,
-			url: `/insights/${slug}`,
+			url: localizedPath(routing.defaultLocale, `/insights/${slug}`),
 			description: post.description,
 			images: post.coverImage ? [post.coverImage] : ["/og_image.png"],
 		},
@@ -52,25 +55,49 @@ export async function generateMetadata({
 	};
 }
 
+const ORIGIN = METADATA.url.replace(/\/+$/, "");
+
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
-	const { slug } = await params;
+	const { slug, locale } = await params;
 	const post = await getPostBySlug(slug);
+	const t = await getTranslations({ locale });
 
 	if (!post) {
 		notFound();
 	}
 
+	const url = `${ORIGIN}/insights/${slug}`;
+	const articleJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: post.title,
+		description: post.description,
+		datePublished: post.date,
+		image: `${ORIGIN}${post.coverImage || "/og_image.png"}`,
+		inLanguage: "en",
+		keywords: post.tags.join(", "),
+		url,
+		mainEntityOfPage: url,
+		author: { "@id": `${ORIGIN}/about#person` },
+		publisher: { "@id": `${ORIGIN}/#business` },
+	};
+
 	return (
 		<div className="container py-24 sm:py-32">
+			<script
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+			/>
 			<div className="max-w-3xl mx-auto">
 				<Link href="/insights">
 					<Button
 						variant="ghost"
 						className="gap-2 mb-8 -ml-2 text-muted-foreground hover:text-foreground"
-						aria-label="Back to insights"
+						aria-label={t("blog.back")}
 					>
 						<ArrowLeftIcon className="w-4 h-4" />
-						Back to Insights
+						{t("blog.back")}
 					</Button>
 				</Link>
 

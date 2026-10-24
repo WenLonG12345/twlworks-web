@@ -75,16 +75,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		},
 	];
 
-	const postRoutes: Route[] = getAllPosts().map((post) => {
+	// posts are English-only, so they get a single default-locale entry
+	const postEntries: MetadataRoute.Sitemap = getAllPosts().map((post) => {
 		const date = new Date(post.date);
 
 		return {
-			path: `/insights/${post.slug}`,
+			url: localizedUrl(routing.defaultLocale, `/insights/${post.slug}`),
 			lastModified: Number.isNaN(date.getTime()) ? now : date,
 			changeFrequency: "monthly",
 			priority: 0.6,
 		};
 	});
 
-	return [...staticRoutes, ...postRoutes].flatMap(localizedEntries);
+	return [...staticRoutes.flatMap(localizedEntries), ...postEntries];
 }

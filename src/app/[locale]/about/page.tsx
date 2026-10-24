@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { CAREER_LIST, METADATA, SITE_CONFIG } from "@/constants";
 import type { MetadataProps } from "@/constants/types";
-import { localeAlternates } from "@/utils/seo";
+import { localeAlternates, localizedPath } from "@/utils/seo";
 import AboutClient from "./About";
 
 export async function generateMetadata({
@@ -16,21 +16,17 @@ export async function generateMetadata({
 		title: { absolute: t("about.seo_title") },
 		description: t("about.summary_career"),
 		alternates: localeAlternates(locale, "/about"),
-		icons: {
-			icon: "/favicon.ico",
-		},
 		openGraph: {
 			type: "website",
 			title: t("about.badge"),
 			description: t("about.summary_career"),
-			url: "/about",
+			url: localizedPath(locale, "/about"),
 			images: ["/og_image.png"],
 		},
 		twitter: {
 			card: "summary_large_image",
 			title: t("about.badge"),
 			description: t("about.summary_career"),
-			site: "/about",
 			images: ["/og_image.png"],
 		},
 	};
@@ -48,7 +44,7 @@ const PERSON_JSON_LD = {
 	"@id": `${ORIGIN}/about#person`,
 	name: "Teo Wen Long",
 	url: `${ORIGIN}/about`,
-	image: `${ORIGIN}/images/profile_picture.png`,
+	image: `${ORIGIN}/images/profile_picture.webp`,
 	jobTitle: current.role,
 	worksFor: { "@type": "Organization", name: current.title, url: current.url },
 	email: SITE_CONFIG.contact.email,
